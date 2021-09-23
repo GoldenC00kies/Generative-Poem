@@ -1,0 +1,37 @@
+#These operations open and read the text document that will be turned into a poem
+
+with open('/content/drive/MyDrive/creative coding/Wizard_Of_Oz_Edited.txt') as f:
+  text = f.read()
+text = text.replace("“","\"").replace("”","\"")
+
+
+from textblob import TextBlob
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('brown')
+blob = TextBlob(text)
+sentence_list = blob.sentences
+import random
+
+#The operations bellow construct the poem itself
+
+import re
+sentence = random.choice(blob.sentences)
+clean_sentence = re.sub(r'[,\.\"“”\?\!\;\-\&]', ' ', str(sentence)).replace('’','\'')
+last_word = str(clean_sentence).split()[-1]
+for i in range(5):
+  sentence = random.choice(blob.sentences)
+  clean_sentence = re.sub(r'[,\.\"“”\?\!\;\-\&]', ' ', str(sentence)).replace('’','\'')
+  last_word = str(clean_sentence).split()[-1]
+  good_sentences = []
+  for sent in blob.sentences:
+    if (str(sent)[0] == last_word[0].upper()):
+      good_sentences.append(sent)
+  if (len(good_sentences) < 1):
+    print(last_word)
+  next_line = random.choice(good_sentences)
+  next_line = re.sub(r'[,\.\"“”\?\!\;\-\&]', ' ', str(next_line)).replace('’','\'')
+  print(clean_sentence)
+  print(last_word)
+  print(next_line) 
