@@ -20,7 +20,7 @@ import re
 sentence = random.choice(blob.sentences)
 clean_sentence = re.sub(r'[,\.\"“”\?\!\;\-\&]', ' ', str(sentence)).replace('’','\'')
 last_word = str(clean_sentence).split()[-1]
-for i in range(5):
+for i in range(3):
   sentence = random.choice(blob.sentences)
   clean_sentence = re.sub(r'[,\.\"“”\?\!\;\-\&]', ' ', str(sentence)).replace('’','\'')
   last_word = str(clean_sentence).split()[-1]
