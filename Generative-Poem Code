@@ -14,7 +14,7 @@ blob = TextBlob(text)
 sentence_list = blob.sentences
 import random
 
-#The operations bellow construct the poem itself
+#The operations bellow construct the poem itself. I got a lot of help with this from professor Zach Whalen.
 
 import re
 sentence = random.choice(blob.sentences)
